@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ip address tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="pattern">
+      <img class="background desktop" src="assets/pattern-bg-desktop.png" />
+      <img src="assets/pattern-bg-mobile.png" class="background mobile" />
+    </div>
+    <div class="map" id="map"></div>
+    <main class="container">
+      <h1 class="header">IP Address Tracker</h1>
+      <div class="input-container">
+        <input
+          type="text"
+          placeholder="Search for any IP address or domain"
+          id="ip-input"
+        />
+        <button id="input-button">
+          <span
+            ><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+              <path
+                fill="none"
+                stroke="#FFF"
+                stroke-width="3"
+                d="M2 1l6 6-6 6"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </main>
+    <ul class="data">
+      <li>
+        <span class="data-title">IP ADDRESS</span>
+        <h1 id="ip-address" class="data-element">192.212.174.101</h1>
+      </li>
+      <li>
+        <span class="data-title">LOCATION </span>
+        <h1 id="location" class="data-element">Brooklyn,NY 10001</h1>
+      </li>
+      <li>
+        <span class="data-title">TIMEZONE</span>
+        <h1 id="time-zone" class="data-element">UTC-05:00</h1>
+      </li>
+      <li>
+        <span class="data-title">ISP</span>
+        <h1 id="ISP" class="data-element">SpaceX Starlink</h1>
+      </li>
+    </ul>
+  </body>
+</html>

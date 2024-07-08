@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+:root {
+  --Very-Dark-Gray: hsl(0, 0%, 17%);
+  --Dark-Gray: hsl(0, 0%, 59%);
+  --text-input-size: 18px;
+  --mim-font-weigth: 400;
+  --mid-font-weigth: 500;
+  --max-font-weigth: 700;
+}
+* {
+  font-family: "Rubik";
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-color: white;
+}
+.pattern {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+.background.mobile {
+  display: none;
+}
+.map {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: -1;
+  height: calc(100% - 280px);
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+.header {
+  color: white;
+  text-align: center;
+  font-weight: var(--mid-font-weigth);
+}
+.input-container {
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: white;
+  display: flex; /* Ensure flexbox layout for children */
+  align-items: center; /* Center items vertically */
+  height: 56px;
+  cursor: pointer;
+}
+
+.input-container input {
+  outline: none;
+  border: none;
+  margin-left: 20px;
+  width: 450px;
+  font-size: var(--text-input-size);
+  padding: 15px 0;
+}
+.input-container input::placeholder {
+  color: var(--Dark-Gray);
+}
+.input-container button {
+  border: none;
+  background-color: var(--Very-Dark-Gray);
+  padding: 10px 20px;
+  height: 100%; /* Set button height to 100% of parent height */
+  display: flex; /* Use flexbox to center content vertically */
+  align-items: center; /* Center content vertically */
+  cursor: pointer;
+}
+.input-container button:hover {
+  background-color: var(--Dark-Gray);
+}
+.data {
+  background-color: white;
+  padding: 30px 40px;
+  list-style: none;
+  display: flex;
+  max-width: calc(0.75 * 1440px);
+  border-radius: 10px;
+}
+.data li {
+  padding-right: 45px;
+  padding-left: 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.178);
+}
+.data li:last-child {
+  border: none;
+  padding-right: 0;
+}
+.data-title {
+  color: var(--Dark-Gray);
+  letter-spacing: 2px;
+  font-weight: var(--mid-font-weigth);
+}
+.data-element {
+  color: var(--Very-Dark-Gray);
+  font-weight: var(--mid-font-weigth);
+}
+@media (max-width: 375px) {
+  .background.mobile {
+    display: block;
+  }
+  .background.desktop {
+    display: none;
+  }
+  .map {
+    height: calc(100% - 300px);
+  }
+}
+
+@media (max-width: 1050px) {
+  .data {
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 40px;
+  }
+  .data li {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+  }
+  .data-element{
+    margin: 10px 0;
+    font-size: x-large;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+  .input-container {
+    width: 85%;
+    justify-content: space-between;
+  }
+  .input-container input {
+    width: 75%;
+  }
+}
+@media (min-width:1440px) {
+  img{
+    width: 100%;
+  }
+}
