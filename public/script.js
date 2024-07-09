@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add a marker with the custom icon to the map
     var marker = L.marker([51.5, -0.09], { icon: svgIcon }).addTo(map);
 
-    const apiKey = 'at_8atGm2SZhb76nVxBE7cherNLiMSCV';
-
     const inputButton = document.getElementById('input-button');
     const IPinput = document.getElementById('ip-input');
 
@@ -29,20 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const location = document.getElementById('location');
     const timeZone = document.getElementById('time-zone');
     const ISP = document.getElementById('ISP');
-
-    async function fetchData(apiUrl) {
-        try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            throw error; // Rethrow the error to propagate it to the caller
-        }
-    }
 
     function updateData(data) {
         ipAddress.textContent = data.ip || '';
@@ -57,14 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
             map.setView([loc.lat, loc.lng], 13);
         }
     }
-
+    async function fetchData(ipAddress) {
+        try {
+            const response = await fetch(`/${ipAddress}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.log(`error fetching data: ${error}`);
+        }
+    }
     inputButton.addEventListener('click', async () => {
         const ipAddress = IPinput.value;
-        // Construct the API URL
-        const apiUrl = `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ipAddress}`;
-
         try {
-            const data = await fetchData(apiUrl);
+            const data = await fetchData(ipAddress);
             // Handle the data here
             updateData(data);
             console.log(data);
