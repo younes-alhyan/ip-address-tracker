@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     async function fetchData(ipAddress) {
         try {
-            const response = await fetch(`/${ipAddress}`);
+            const url = ipAddress ? `/location/${ipAddress}` : '/location/';
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -59,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await fetchData(ipAddress);
             // Handle the data here
             updateData(data);
-            console.log(data);
         } catch (error) {
             // Handle errors from fetchData
             console.error('Error:', error);
