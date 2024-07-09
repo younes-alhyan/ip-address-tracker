@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 const apiKey = process.env.API_KEY;
 
-app.get('/loction/:IPAddress?', async (req, res) => {
+app.get('/location/:IPAddress?', async (req, res) => {
     const ipAddress = req.params.IPAddress ? req.params.IPAddress : '';
     try {
         const apiUrl = `https://geo.ipify.org/api/v1?apiKey=${apiKey}&ipAddress=${ipAddress}`;
