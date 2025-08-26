@@ -1,6 +1,6 @@
 # 📁 IP Address Tracker
 
-![Hero Image](https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_700/Challenges/ld4kxbjoxpqpjenak8w6.jpg)
+![Hero Image](https://res.cloudinary.com/dz209s6jk/image/upload/Challenges/ld4kxbjoxpqpjenak8w6.jpg)
 
 ## 🌟 Description
 
